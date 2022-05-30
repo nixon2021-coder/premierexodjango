@@ -1,0 +1,47 @@
+{% load static %}
+
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body style="text-align: center;">
+        <h1 style="text-align: center; color: rgb(255, 140, 0);text-decoration: underline; " >LES VOITURES: cliquez sur les images pour verifier leurs descriptions</h1>
+        {% for voitures in automobiles %}
+            <p style="color: rgb(224, 181, 64);text-decoration: underline;text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">-MARQUE: {{voitures.marque}}</p>  
+            <p style="color: rgb(64, 147, 224);text-decoration: underline;text-align: center; font-family:Verdana, Geneva, Tahoma, sans-serif " >-MODELE: {{voitures.modele}}</p> 
+            <p style="color: rgb(224, 64, 91);text-decoration: underline;text-align: center; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">-MODELE: {{voitures.modele}}</p> 
+            <p style="color: rgb(88, 110, 108);text-decoration: underline;text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">-COULEUR: {{voitures.couleur}}</p>
+            <p style="color:steelblue;text-decoration: underline;text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif; animation-duration: 3s; animation-name: inherit; animation-iteration-count: infinite;">-DESCRIPTITON: {{voitures.description|truncatewords_html:6}}</p> <br> 
+            
+            <a href="{% url 'page' voitures.id %}"> <img style="width: 550px;" src="{{voitures.image.url}}" alt="">  </a>
+                
+
+        {% endfor %}
+    
+    <div class="voitures">
+        <div class="row1">
+             
+                {% comment %} <a href =""><div class="gauche">     
+                    <div class="image"></div>
+                    <div class="text" style="margin: 10px;">
+                        Marque : Range Rover <br>
+                        modèle : Velar
+                    </div>
+                </div>
+                </a>
+
+                <a href=""><div class="gauche">
+                    <div class="image2"></div>
+                    <div class="text">
+                        lorem ipsum
+                    </div>
+                </div>
+                </a> {% endcomment %}
+            
+        </div>
+    </div>
+
+
+</body>
+</html>
